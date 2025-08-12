@@ -34,23 +34,31 @@ st.markdown(
     
     .main-header {
         font-size: 3.5rem;
-        background: linear-gradient(135deg, #ffffff 0%, #cccccc 25%, #888888 50%, #ffffff 75%, #cccccc 100%);
+        background: linear-gradient(135deg, #ffffff 0%, #d9d9d9 25%, #b3b3b3 50%, #ffffff 75%, #d9d9d9 100%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
         text-align: center;
         margin-bottom: 1rem;
         font-weight: bold;
-        text-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+        /* Sharper rendering */
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
+        /* Reduce glow to avoid fuzziness */
+        text-shadow: 0 0 4px rgba(255, 255, 255, 0.2);
     }
     
     .subtitle {
         font-size: 1.3rem;
-        color: #b0b0b0;
+        color: #e0e0e0; /* Brighter for more contrast */
         text-align: center;
         margin-bottom: 2rem;
         font-style: italic;
-        text-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+        /* Sharper rendering */
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
+        /* Minimal shadow for subtle depth without blur */
+        text-shadow: 0 0 2px rgba(255, 255, 255, 0.15);
     }
     
     /* Success prediction styling */
