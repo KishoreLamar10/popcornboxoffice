@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  movie-predictor:
+    build: .
+    ports:
+      - "8501:8501"
+    volumes:
+      - ./movies.csv:/app/movies.csv:ro  # Mount CSV file as read-only
+    environment:
+      - STREAMLIT_SERVER_HEADLESS=true
+      - STREAMLIT_SERVER_ENABLE_CORS=false
+      - STREAMLIT_SERVER_ENABLE_XSRF_PROTECTION=false
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8501/_stcore/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 30s
