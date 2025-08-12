@@ -1,0 +1,5 @@
+# Minimal requirements for a working app
+streamlit
+pandas
+numpy
+scikit-learn
